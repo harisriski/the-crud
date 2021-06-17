@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class = "alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+        </ul>
+    </div>
+@endif
 <form class="mb-4" action="/store" method="POST">
   @csrf
   <h1 class="text-center mb-4">Create Product</h1>
